@@ -8,3 +8,4 @@ domains=" a01-stud-01.ToddBooth.com a01-stud-02.ToddBooth.com a01-stud-03.ToddBo
 # Specify the sub-domain you want to test
 # domains="toddbooth.com"
 
+# test

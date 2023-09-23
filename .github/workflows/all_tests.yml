@@ -24,6 +24,7 @@ jobs:
       - name: Test DNS Server domain resolution
         run: |
           # Execute the external script.sh file
+          chmod +x ./test_dig_resolve_domain.sh
           ./test_dig_resolve_ip.sh
 
           - name: Install nmap
@@ -32,6 +33,7 @@ jobs:
       - name: Test if Web site ports 80 and 443 are listening
         run: |
           # Execute the external script.sh file
+          chmod +x ./test_nmap_wp_listen.sh
           ./test_nping_wp_listen.sh
 
       - name: Install curl
@@ -40,11 +42,13 @@ jobs:
       - name: Test is Web site is serving web pages on ports 80 and 443
         run: |
           # Execute the external script.sh file
+          chmod +x ./test_curl_website.sh
           ./test_curl_website.sh
 
       - name: Test is Web site is serving web pages on ports 80 and 443 (assume curl is already installed)
         run: |
           # Execute the external script.sh file
+          chmod +x ./test_curl_website.sh
           ./test_curl_certificate.sh
                 
   
