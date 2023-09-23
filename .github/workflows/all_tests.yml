@@ -1,0 +1,50 @@
+name: All Tests
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  domain_check:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Print some information about the environment
+        run: |
+          echo "Running on $(uname -a)"
+          echo "Current directory: $PWD"
+          ls -l
+        
+      - name: Install dig
+        run: sudo apt-get install -y dnsutils
+
+      - name: Test DNS Server domain resolution
+        run: |
+          # Execute the external script.sh file
+          ./test_dig_resolve_ip.sh
+
+          - name: Install nmap
+          run: sudo apt-get install -y nmap
+    
+      - name: Test if Web site ports 80 and 443 are listening
+        run: |
+          # Execute the external script.sh file
+          ./test_nping_wp_listen.sh
+
+      - name: Install curl
+        run: sudo apt-get install -y curl
+      
+      - name: Test is Web site is serving web pages on ports 80 and 443
+        run: |
+          # Execute the external script.sh file
+          ./test_curl_website.sh
+
+      - name: Test is Web site is serving web pages on ports 80 and 443 (assume curl is already installed)
+        run: |
+          # Execute the external script.sh file
+          ./test_curl_certificate.sh
+                
+  
