@@ -39,7 +39,7 @@ jobs:
       - name: Test if Web site ports 80 and 443 are listening
         run: |
           # Execute the external script.sh file
-          chmod +x ./test_nmap_wp_listen.sh
+          chmod +x ./test_nping_wp_listen.sh
           ./test_nping_wp_listen.sh
 
       - name: Install curl
