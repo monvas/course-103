@@ -42,8 +42,9 @@ jobs:
       #     chmod +x ./test_nping_wp_listen.sh
       #     ./test_nping_wp_listen.sh
 
-      - name: Install netcat
-        run: sudo apt-get install -y netcat
+      # - name: Install netcat
+      #   run: sudo apt-get install -y netcat
+      # installed by default
 
       - name: Test if Web site ports 80 and 443 are listening
         run: |

@@ -5,7 +5,7 @@ check_wp_site() {
     echo -n "Checking $domain... "
     
     # Check if the domain is listening on port 80 (HTTP)
-    nc -z -w 1 $domain 81
+    nc -z -w 1 $domain 80
     http_result=$?
 
     # Check if the domain is listening on port 443 (HTTPS)
