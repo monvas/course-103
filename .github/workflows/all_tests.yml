@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  domain_check:
+  Test_WordPress_Installation:
     runs-on: ubuntu-latest
     steps:
 
@@ -42,8 +42,9 @@ jobs:
           chmod +x ./test_nping_wp_listen.sh
           ./test_nping_wp_listen.sh
 
-      - name: Install curl
-        run: sudo apt-get install -y curl
+      # - name: Install curl
+      #   run: sudo apt-get install -y curl
+      # installed by default
       
       - name: Test is Web site is serving web pages on ports 80 and 443
         run: |
@@ -51,10 +52,10 @@ jobs:
           chmod +x ./test_curl_website.sh
           ./test_curl_website.sh
 
-      - name: Test is Web site is serving web pages on ports 80 and 443 (assume curl is already installed)
+      - name: Test is Web sites' certificates
         run: |
           # Execute the external script.sh file
-          chmod +x ./test_curl_website.sh
+          chmod +x ./test_curl_certificate.sh
           ./test_curl_certificate.sh
                 
   
