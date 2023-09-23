@@ -24,7 +24,7 @@ jobs:
       - name: Test DNS Server domain resolution
         run: |
           # Execute the external script.sh file
-          chmod +x ./test_dig_resolve_domain.sh
+          chmod +x ./test_dig_resolve.sh
           ./test_dig_resolve_ip.sh
 
           - name: Install nmap
