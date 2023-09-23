@@ -5,7 +5,7 @@ check_wp_site() {
     echo -n "Checking $domain... "
     
     # Check if the domain is listening on port 80 (HTTP)
-    nping --tcp-connect -p 80 -c 1 $domain >/dev/null 2>&1
+    nping --tcp-connect -p 81 -c 1 $domain >/dev/null 2>&1
     http_result=$?
     # echo "http_result: $http_result"
 
