@@ -5,13 +5,16 @@ check_wp_site() {
     echo -n "Checking $domain... "
     
     # Check if the domain is listening on port 80 (HTTP)
-    nping --tcp-connect -p 81 -c 1 $domain >/dev/null 2>&1
+    nc -z -w 1 $domain 80
     http_result=$?
-    # echo "http_result: $http_result"
 
-    # Check if the domain is listening on port 443 (HTTPS)
-    nping --tcp-connect -p 443 -c 1 $domain >/dev/null 2>&1
-    https_result=$?
+    if [ $http_result -eq 0 ]; then
+        echo "Port 80 is listening"
+        exit 1
+    else
+        echo "Port 80 is not listening"
+        exit 1
+    fi
 
     # Print the domain name
     echo "Domain: $domain"
@@ -36,6 +39,9 @@ check_wp_site() {
 source data.sh
 
 # create loop to test all sub-domains
+
+# test
+domains=" a01-stud-01.ToddBooth.com a01-stud-02.ToddBooth.com a01-stud-03.ToddBooth.com a01-stud-04.ToddBooth.com a01-stud-05.ToddBooth.com a01-stud-06.ToddBooth.com a01-stud-07.ToddBooth.com a01-stud-08.ToddBooth.com a01-stud-09.ToddBooth.com a01-stud-10.ToddBooth.com a01-stud-11.ToddBooth.com a01-stud-12.ToddBooth.com"
 
 for domain in $domains; do
     check_wp_site $domain

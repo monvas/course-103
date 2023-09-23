@@ -33,14 +33,23 @@ jobs:
           chmod +x ./test_dig_resolve_ip.sh
           ./test_dig_resolve_ip.sh
 
-      - name: Install nmap
-        run: sudo apt-get install -y nmap
-    
+      # - name: Install nmap
+      #   run: sudo apt-get install -y nmap
+
+      # - name: Test if Web site ports 80 and 443 are listening
+      #   run: |
+      #     # Execute the external script.sh file
+      #     chmod +x ./test_nping_wp_listen.sh
+      #     ./test_nping_wp_listen.sh
+
+      - name: Install netcat
+        run: sudo apt-get install -y netcat
+
       - name: Test if Web site ports 80 and 443 are listening
         run: |
           # Execute the external script.sh file
-          chmod +x ./test_nping_wp_listen.sh
-          ./test_nping_wp_listen.sh
+          chmod +x ./test_nc_wp_listen.sh
+          ./test_nc_wp_listen.sh
 
       # - name: Install curl
       #   run: sudo apt-get install -y curl
