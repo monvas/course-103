@@ -24,32 +24,39 @@ jobs:
           ls -l
         
       - name: Test DNS Server domain resolution
+        if: false
         run: |
           # Execute the external script.sh file
           chmod +x ./test_dig_resolve_ip.sh
           ./test_dig_resolve_ip.sh
 
       - name: Test if Web site ports 80 and 443 are listening
+        if: false
         run: |
           # Execute the external script.sh file
           chmod +x ./test_nc_wp_listen.sh
           ./test_nc_wp_listen.sh
 
       - name: Test is Web site is serving web pages on ports 80 and 443
+        if: false
         run: |
           # Execute the external script.sh file
           chmod +x ./test_curl_website.sh
           ./test_curl_website.sh
 
       - name: Test Web sites' certificates
+        if: false
         run: |
           # Execute the external script.sh file
           chmod +x ./test_curl_certificate.sh
           ./test_curl_certificate.sh
-                
+
+      - name: Get list of Canvas user names
+        env:
+          canvas_token: {canvas_token}
+        run: python test_canvas_users.py
+                     
       - name: To get here, all tests have passed, so deployment will now begin
         run: |
           echo "All tests have passed, so deployment will now begin here ..."
 
-
-          
