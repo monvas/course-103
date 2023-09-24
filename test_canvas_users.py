@@ -3,7 +3,7 @@ import requests
 import sys
 
 # Get the value of the "token" environment variable
-token = os.environ.get("canvas_token")
+token = os.environ.get("CANVAS_TOKEN")
 
 # Check if the variable is set
 if token is not None:
