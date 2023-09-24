@@ -52,9 +52,15 @@ jobs:
           ./test_curl_certificate.sh
 
       - name: Get list of Canvas user names
-        env:
-          canvas_token: {canvas_token}
-        run: python test_canvas_users.py
+        # env:
+        #   canvas_token: {canvas_token}
+        run: |
+          # Access the secret and store it in an environment variable
+          canvas_token=$canvas_token
+
+          # Use the secret in your script or command
+          echo "My secret is: $canvas_token"
+          python test_canvas_users.py
                      
       - name: To get here, all tests have passed, so deployment will now begin
         run: |
