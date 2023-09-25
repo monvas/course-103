@@ -51,15 +51,18 @@ jobs:
           chmod +x ./test_curl_certificate.sh
           ./test_curl_certificate.sh
 
-      - name: Get list of Canvas user names
+      - name: Test Canvas user names via Python
         env:
           CANVAS_TOKEN: ${{ secrets.CANVAS_TOKEN }}
         run: |
-          # Access the secret and store it in an environment variable
-          # echo "My secret is: ${{ secrets.CANVAS_TOKEN }}"
-          # CANVAS_TOKEN=${{ secrets.CANVAS_TOKEN }}
           python test_canvas_users.py
-                     
+                      
+      - name: Test Canvas user names via Bash
+        env:
+          CANVAS_TOKEN: ${{ secrets.CANVAS_TOKEN }}
+        run: |
+          python test_canvas_users.sh
+                        
       - name: To get here, all tests have passed, so deployment will now begin
         run: |
           echo "All tests have passed, so deployment will now begin here ..."
