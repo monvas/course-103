@@ -70,7 +70,8 @@ jobs:
           WP_USERNAME: ${{ secrets.WP_USERNAME }}
           WP_KEY: ${{ secrets.WP_KEY }}
         run: |
-          python test_canvas_users.py
+          chmod +x ./test_wordpress_post.sh
+          ./test_wordpress_post.sh
                       
       - name: To get here, all tests have passed, so deployment will now begin
         run: |
