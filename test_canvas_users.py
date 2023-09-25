@@ -51,7 +51,7 @@ for user in users_data:
     # Access the 'sis_user_id' key within each user dictionary and verify that it is "maharg-3"
     if user['sis_user_id'] == "maharg-3":
         print(user['sis_user_id'])
-        sys.exit(1)
+        sys.exit(0)
 
 print("No user with sys_user_id 'maharg-3' found.")
-sys.exit(0)
+sys.exit(1)

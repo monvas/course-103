@@ -5,7 +5,7 @@ on:
       - main
 
 jobs:
-  Test_WordPress_Installation:
+  Test_WordPress_Canvas_Installation_Configuration:
     runs-on: ubuntu-latest
     steps:
 
