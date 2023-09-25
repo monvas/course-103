@@ -73,6 +73,6 @@ jobs:
           python test_canvas_users.py
                       
       - name: To get here, all tests have passed, so deployment will now begin
-      run: |
-        echo "All tests have passed, so deployment will now begin here ..."
+        run: |
+          echo "All tests have passed, so deployment will now begin here ..."
 
