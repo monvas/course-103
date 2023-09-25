@@ -1,4 +1,4 @@
-name: All WordPress Tests for multiple subsites
+name: Tests for All WordPress multiple subsites and Canvas configuration
 on:
   push:
     branches:
