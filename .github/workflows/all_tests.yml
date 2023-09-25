@@ -64,8 +64,15 @@ jobs:
           CANVAS_TOKEN: ${{ secrets.CANVAS_TOKEN }}
         run: |
           python test_canvas_users.py
+                    
+      - name: Test WordPress post via Python
+        env:
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_KEY: ${{ secrets.WP_KEY }}
+        run: |
+          python test_canvas_users.py
                       
       - name: To get here, all tests have passed, so deployment will now begin
-        run: |
-          echo "All tests have passed, so deployment will now begin here ..."
+      run: |
+        echo "All tests have passed, so deployment will now begin here ..."
 

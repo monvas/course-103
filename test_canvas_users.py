@@ -3,6 +3,10 @@ import os
 import requests
 import sys
 
+# network programming
+BASE_URL = "https://canvas.ltu.se/api/v1"
+COURSE_ID = 19899
+
 # required Environment Variables
 # CANVAS_TOKEN
 
@@ -19,10 +23,6 @@ else:
 headers = {
     "Authorization": "Bearer " + token,
 }
-
-# network programming
-BASE_URL = "https://canvas.ltu.se/api/v1"
-COURSE_ID = 19899
 
 response = requests.get(
     f"{BASE_URL}/courses/{COURSE_ID}/users",
