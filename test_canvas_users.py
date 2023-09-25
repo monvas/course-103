@@ -11,17 +11,17 @@ COURSE_ID = 19899
 # CANVAS_TOKEN
 
 # Get the value of the "token" environment variable
-token = os.environ.get("CANVAS_TOKEN")
+CANVAS_TOKEN = os.environ.get("CANVAS_TOKEN")
 
 # Check if the variable is set
-if token is None:
-    print("Canvas token environment variable is not set.")
+if CANVAS_TOKEN is None:
+    print("CANVAS_TOKEN environment variable is not set.")
     sys.exit(1)
 else:
-    print("token: found")
+    print("CANVAS_TOKEN: found")
 
 headers = {
-    "Authorization": "Bearer " + token,
+    "Authorization": "Bearer " + CANVAS_TOKEN,
 }
 
 response = requests.get(
