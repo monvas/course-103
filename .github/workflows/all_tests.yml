@@ -51,11 +51,13 @@ jobs:
           chmod +x ./test_curl_certificate.sh
           ./test_curl_certificate.sh
 
-      - name: Test Canvas user names via Bash
+      - name: Test WordPress user names via Bash
         env:
-          CANVAS_TOKEN: ${{ secrets.CANVAS_TOKEN }}
+          WP_USERNAME: ${{ secrets.WP_USERNAME }}
+          WP_KEY: ${{ secrets.WP_KEY }}
         run: |
-          python test_canvas_users.sh
+          chmod +x ./test_wordpress_users.sh
+          ./test_wordpress_users.sh
                             
       - name: Test Canvas user names via Python
         env:
